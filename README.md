@@ -1,6 +1,7 @@
 # Reverse Engineering
 
 **mystery1() - calculeaza lungimea unui sir**
+
 @str - adresa de inceput a sirului
 
 La o prima vedere, functia are un singur argument. Urmarind in
@@ -15,9 +16,12 @@ Return: lungimea sirului.
 
 prototip: int strlen(const char* str)
 
+
 **mystery2() - cauta un caracter intr-un sir si daca exista
              returneaza pozitia sa in sir**
+
 @str: adresa de inceput a sirului in care se cauta
+
 @chr: caracterul cautat
 
 La o prima vedere, functia are 2 argumente. Urmarind in GDB,
@@ -36,10 +40,14 @@ Return: indexul primei aparitii a caracterului chr in sirul str.
 
 prototip: int strcspn(const char* str, const char chr)
 
+
 **mystery3() - compara primele n caractere din sirurile date ca 
              parametru**
+
 @str1: adresa de inceput a primului sir
+
 @str2: adresa de inceput a celui de-al doilea sir
+
 @num: numarul de caractere de comparat
 
 La o prima vedere, functia are 3 argumente. Urmarind in GDB, 
@@ -61,9 +69,13 @@ Return: 1 - sirurile difera, 0 - sirurile sunt identice.
 
 prototip: int strncmp(const char* str1, const char* str2, int num)
 
+
 **mystery4() - copiaza num caractere din sirul sursa in sirul dest**
+
 @destination: adresa de inceput a sirului destinatie
+
 @source: adresa de inceput a sirului sursa
+
 @num: numarul de caractere de copiat
 
 La o prima vedere, functia are 3 argumente. Urmarind in
@@ -77,7 +89,9 @@ parametrilor nu este efectuata inaintea apelului.
 
 prototip: void strncpy(const char* destination, const char* source, int num)
 
+
 **mystery5() - verifica daca un caracter ascii este cifra**
+
 @chr: caracterul de verificat
 
 La o prima vedere, functia are un singur argument. Urmarind in
@@ -90,7 +104,9 @@ Return: 1 - daca caracterul este cifra, 0 - altfel.
 
 prototip: int isnumber(const char chr)
 
+
 **mystery6() - inverseaza un sir**
+
 @str: adresa de inceput a sirului
 
 La o prima vedere, functia are un singur argument. Urmarind in
@@ -105,8 +121,10 @@ inversul sau.
 
 prototip: void strrev(const char* str)
 
+
 **mystery7() - converteste un sir format din cifre in valoarea sa
              intreaga**
+
 @str: adresa de inceput a sirului de convertit
 
 La o prima vedere, functia are un singur argument. Urmarind in
@@ -128,9 +146,13 @@ Return: valoarea numarului reprezentat ca sir de caractere.
 
 prototip: int atoi(const char* str)
 
+
 **mystery8() - cauta patternul dat intr-un string**
+
 @str: adresa de inceput a stringului
+
 @pattern: adresa de inceput a patternului
+
 @size: dimensiunea patternului
 
 La o prima vedere, functia primeste 3 argumente. Urmarind in
@@ -147,10 +169,15 @@ Return: 1 - linia contine patternul dat, 0 - linia nu contine patternul.
 
 prototip: int searchpattern(const char* str, const char* pattern, int size)
 
+
 **mystery9() - Cauta patternul dat in string in intervalul [start, stop]**
+
 @str: adresa de inceput a sirului de parsat
+
 @start: indicele de start
+
 @stop: indicele de stop
+
 @pattern: patternul cautat
 
 La o prima vedere, functia primeste 4 argumente. Urmarind in GDB,
@@ -169,8 +196,11 @@ la urmatoarea linie.
 
 prototip: void fgrep(char* str, int start, int stop, char* pattern)
 
+
 **start() - functia main a programului**
+
 @argc: numarul de parametri ai executabilului
+
 @argv: parametrii executabilului
 
 La o prima vedere, functia are doua argumente. Urmarind in GDB,
@@ -205,8 +235,11 @@ prototip: void do_simple_echo()
 
 
 **do_read() - citeste size caractere din stream in buffer**
+
 @stream: de unde se citeste (0 - stdin sau file descriptor)
+
 @buffer: zona de memorie in care se citeste
+
 @size: numarul de caractere citite
 
 La o prima vedere, functia are 3 argumente. Urmarind in GDB, se pare ca
@@ -225,8 +258,11 @@ prototip: int do_read(FILE* stream, char* buffer, int size)
 
 
 **do_write() - scrie size caractere din buffer in stream**
+
 @stream: unde se scrie (1 - stdout sau file descriptor)
+
 @buffer: zona de memorie din care se scrie
+
 @size: numarul de caractere scrise
 
 La o prima vedere, functia are 3 argumente. Urmarind in GDB, se pare ca
@@ -244,8 +280,11 @@ Return: numarul de caractere scrise
 prototip: int do_write(FILE* stream, char* buffer, int size)
 
 **do_open() - deschide un fisier**
+
 @filename: numele fisierului de deschis
+
 @accmode: tipul de acces pentru fisier
+
 @permission: permisiunile pe fisier
 
 La o prima vedere, functia primeste 3 argumente. Urmarind in GDB, se
@@ -259,6 +298,7 @@ Return: file descriptor-ul fisierului
 prototip: FILE* do_open(const char* filename, int accmode, int permission)
 
 **do_close() - inchide un fisier**
+
 @stream: file descriptor-ul fisierului de inchis
 
 La o prima vedere, functia primeste un singur argument. Urmarind in GDB,
@@ -269,9 +309,13 @@ fisierul va fi inchis.
 
 prototip: void do_close(FILE* stream)
 
+
 **read_from_file() - citeste maxim num caracter dintr-un fisier**
+
 @filename: numele fisierului din care se citeste
+
 @buffer: adresa de memorie a bufferului in care se citeste
+
 @num: numarul maxim de caractere citite
 
 La o prima vedere, functia primeste 3 argumente. Urmarind in GDB,
@@ -289,8 +333,8 @@ Return: numarul de caractere citite.
 prototip: int read_from_file(const char* filename, char* buffer, int num)
 
 
-
 **do_exit() - scoate programul din executie**
+
 @error: codul de eroare cu care se iese din executia programului
 
 La o prima vedere, programul primeste un singur argument. Urmarind in GDB,
@@ -299,6 +343,7 @@ incheia executia. Acest fapt este dator apelarii functiei syscall_wrapper
 cu optiunea de oprire a programului. 
 
 prototip: void do_exit(int error)
+
 
 **parse_args() - parseaza argumentele programului si le salveaza in memorie**
 
@@ -319,7 +364,9 @@ Daca da, se reia parsare, altfel executia functiei se incheie.
 
 prototip: void parse_args()
 
+
 **parse_opt() - parseaza o optiune data ca parametru programului**
+
 @option: adresa de inceput a optiunii
 
 La o prima vedere, functia primeste un singur argument. Urmarind in GDB, se
@@ -337,6 +384,7 @@ Return: tipul comenzii.
 
 prototip: int parse_opt(const char* option)
 
+
 **do_run() - ruleaza functionalitatea programului in functie de optiunile date
            ca argument**
 
@@ -352,7 +400,9 @@ Apoi se verifica daca executabilul a primit optiunea "-e". Daca da, se retine
 in registru indexul de stop. Daca nu, indexul de stop va fi sfarsitul sirului
 citit, fie din fisier, fie de la tastatura.
 
+
 **print_line() - afiseaza o linie la consola**
+
 @str: adresa de inceput a liniei
 
 La o prima vedere, functia primeste un singur argument. Urmarind in GDB, se
@@ -365,7 +415,9 @@ do_write.
 
 prototip: void print_line(const char* str)
 
+
 **print_string() - afiseaza un sir la consola**
+
 @str: adresa de inceput a sirului
 
 La o prima vedere, functia primeste un singur argument. Urmarind in GDB, se
@@ -376,6 +428,7 @@ prin metoda mystery1 si apeleaza functia do_write pentru afisare.
 prototip: void print_string(const char* str)
 
 
+
 Programul implementeaza o parte din comanda bash fgrep. Acesta poate primi ca
 argumente optiunile "-i" pentru a cauta intr-un fisier, "-f" pentru a cauta un
 pattern anume, "-s" pentru a cauta de la un anumit index din fisier si "-e"
@@ -383,10 +436,12 @@ pentru a cauta pana la un anumit index in fisier. Rulat fara parametri, acesta
 va citi de la tastatura un sir si il va afisa. 
 
 La nivel de optimizari:
+
 **SIZE:**
 1) Am inlocuit instructiuni de tipul add eax, 1 cu inc eax si altele de genul
 2) Am reimplementat mystery1 cu o bucla hardware
 3) Am eliminat functia mystery6
+
 
 **SPEED:**
 1) Am optimizat algoritmul de la atoi in mystery7, renuntand la apelul functiilor
